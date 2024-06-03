@@ -1,16 +1,14 @@
 import { useState } from 'react'
 import React from 'react'
-import Login from './Login'
-import Las from './Las'
-import Navbar from './Navbar'
-
+// import Login from './Login'
+ import Las from './Las'
+import Home from './Home'
 function App() {
-  // const [count, setCount] = useState(0)
 
   return (
-  //  <Las/>
-  <Navbar />
-  )
+  // <Las/>
+  <Home />
+  );
 }
 
 export default App;
