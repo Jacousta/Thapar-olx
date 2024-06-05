@@ -1,16 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Login";
+import { Link, useNavigate } from 'react-router-dom' ;
 function Las()
 {
-    
+        const navigate = useNavigate();
+        const handleRouteClick = () => {
+          navigate("/login");
+        };
    return(
-    <div class="container">
+    <div class="initial-container">
         <h1 class="initial-heading">
             Welcome To ToLx oLx for Thapar
         </h1>
-    <button class="initial-login" ><span > Login </span></button>
+    <button class="initial-login" onClick={handleRouteClick} ><span > Login </span></button>
     <button class="initial-login" ><span> Signup </span></button>
     </div>
     );
