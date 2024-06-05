@@ -1,6 +1,7 @@
 import React from "react";
 import Items from "./Items";
 import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 function Home() {
   return (
     <div>
@@ -14,6 +15,14 @@ function Home() {
           description="Laptop"
           price="120000"
         />
+        <div>
+        <Items
+          image="/download.png"
+          name="Acer"
+          description="Laptop"
+          price="120000"
+        />
+        </div>
       </div>
     </div>
   );

@@ -1,17 +1,14 @@
 import React from "react";
+import Sidebar from "./Sidebar";
 function Navbar() {
   return (
     <div class="header">
-      <a href="#default" class="logo">
+      <a href="#default" className="logo">
         CompanyLogo
       </a>
       <div class="header-right">
-        <a class="active" href="#home">
-          Home
-        </a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-      </div>
+       <Sidebar />
+    </div>
     </div>
   );
 }
