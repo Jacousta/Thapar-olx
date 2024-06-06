@@ -8,21 +8,84 @@ function Home() {
       <div>
         <Navbar />
       </div>
-      <div>
+      <div className="items-container">
         <Items
           image="/download.png"
           name="Acer"
           description="Laptop"
           price="120000"
         />
-        <div>
+
         <Items
           image="/download.png"
           name="Acer"
           description="Laptop"
           price="120000"
         />
-        </div>
+
+        <Items
+          image="/download.png"
+          name="Acer"
+          description="Laptop"
+          price="120000"
+        />
+
+        <Items
+          image="/download.png"
+          name="Acer"
+          description="Laptop"
+          price="120000"
+        />
+
+        <Items
+          image="/download.png"
+          name="Acer"
+          description="Laptop"
+          price="120000"
+        />
+
+        <Items
+          image="/download.png"
+          name="Acer"
+          description="Laptop"
+          price="120000"
+        />
+        <Items
+          image="/download.png"
+          name="Acer"
+          description="Laptop"
+          price="120000"
+        />
+        <Items
+          image="/download.png"
+          name="Acer"
+          description="Laptop"
+          price="120000"
+        />
+        <Items
+          image="/download.png"
+          name="Acer"
+          description="Laptop"
+          price="120000"
+        />
+        <Items
+          image="/download.png"
+          name="Acer"
+          description="Laptop"
+          price="120000"
+        />
+        <Items
+          image="/download.png"
+          name="Acer"
+          description="Laptop"
+          price="120000"
+        />
+        <Items
+          image="/download.png"
+          name="Acer"
+          description="Laptop"
+          price="120000"
+        />
       </div>
     </div>
   );

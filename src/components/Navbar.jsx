@@ -3,9 +3,11 @@ import Sidebar from "./Sidebar";
 function Navbar() {
   return (
     <div class="header">
-      <a href="#default" className="logo">
-        CompanyLogo
-      </a>
+        
+      <div className="logo">
+        <img src="/Users/akhilsharma/Desktop/ToLx/public/logofinal.png" alt="" />
+      </div>
+
       <div class="header-right">
        <Sidebar />
     </div>

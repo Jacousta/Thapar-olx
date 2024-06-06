@@ -25,7 +25,7 @@ function Sidebar() {
 
       <div id="main">
         <button className="openbtn" onClick={openNav}>
-          &#9776; Open Sidebar
+          &#9776;
         </button>
       </div>
     </div>
