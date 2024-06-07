@@ -24,7 +24,7 @@ input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+.login-button {
   background-color: #007bff;
   color: white;
   padding: 14px 20px;
@@ -41,6 +41,14 @@ button {
 /* Extra style for the cancel button */
 .cancelbtn {
   background-color: #dc3545;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 /* Center the avatar image */
@@ -70,14 +78,14 @@ span.psw {
 }
 
 
-.button  span {
+.login-button  span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.button span:after {
+.login-button span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -85,11 +93,11 @@ span.psw {
   transition: 0.5s;
 }
 
-.button:hover span {
+.login-button:hover span {
   padding-right: 25px;
 }
 
-.button:hover span:after {
+.login-button:hover span:after {
   opacity: 1;
   right: 0;
 }
@@ -113,7 +121,28 @@ span.psw {
   padding-right: 25px;
 }
 
-.button:hover span:after {
+.login-button:hover span:after {
   opacity: 1;
   right: 0;
+}
+.addProduct {
+  font-size: 12px;        /* Reduce font size */
+  width: 80px;            /* Set width */
+  height: 80px;           /* Set height */
+  padding: 5px 10px;      /* Reduce padding */
+  margin: 5px;            /* Adjust margin if necessary */
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  border: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adjust box-shadow */
+  border-radius: 5px;     /* Optional: Add border radius for rounded corners */
+  align-items: center;
+}
+
+.addProduct-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

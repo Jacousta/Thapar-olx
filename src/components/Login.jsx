@@ -12,7 +12,7 @@ function Change(event)
         <Input type="text" placeholder="Enter Username" />
         <label htmlFor="psw"><b>Password</b></label>
         <Input type="password" placeholder="Enter Password"/>
-        <button type="submit" className='button'> <span> Login</span></button>
+        <button type="submit" className='login-button'> <span> Login</span></button>
         <label>
          <Input type="checkbox" checked="checked" name="remember" />Remember me
         </label>

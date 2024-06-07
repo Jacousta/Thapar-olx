@@ -12,7 +12,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007bff; /* Primary blue background */
   padding: 10px 20px; /* Adjusted padding for better spacing */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
@@ -34,15 +33,6 @@ body {
   padding: 10px 20px; /* Adjusted padding for better spacing */
 }
 
-.header a:hover {
-  background-color: #0056b3; /* Darker blue for hover effect */
-  color: #ffffff; /* Maintain white text color */
-}
-
-.header a.active {
-  background-color: #0056b3; /* Active link color */
-  color: #ffffff;
-}
 
 .header-right {
   display: flex;
@@ -80,7 +70,6 @@ body {
 
 /* Footer Styles (if needed) */
 .footer {
-  background-color: #007bff; /* Primary blue background */
   color: #ffffff; /* White text color */
   text-align: center;
   padding: 10px 20px;
@@ -88,29 +77,4 @@ body {
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Button Styles */
-.button {
-  background-color: #007bff; /* Primary blue background */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #0056b3; /* Darker blue for hover effect */
-}
-
-/* General Link Styles */
-a {
-  color: #007bff; /* Primary blue color */
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
