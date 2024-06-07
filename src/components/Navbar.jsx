@@ -5,7 +5,7 @@ function Navbar() {
     <div class="header">
         
       <div className="logo">
-        <img src="/Users/akhilsharma/Desktop/ToLx/public/logofinal.png" alt="" />
+        <img src="/images/logofinall.png" alt="" />
       </div>
 
       <div class="header-right">

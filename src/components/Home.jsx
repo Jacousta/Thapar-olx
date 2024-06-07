@@ -1,7 +1,19 @@
 import React from "react";
 import Items from "./Items";
 import Navbar from "./Navbar";
-import Sidebar from "./Sidebar";
+import item from "../item";
+
+function createinput(item){
+  return (
+    <Items
+      key={item.id}
+      image={item.image}
+      name={item.name}
+      description={item.description}
+      price={item.price}
+    />
+  );
+}
 function Home() {
   return (
     <div>
@@ -9,83 +21,7 @@ function Home() {
         <Navbar />
       </div>
       <div className="items-container">
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
-
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
-
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
-
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
-
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
-
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
-        <Items
-          image="/download.png"
-          name="Acer"
-          description="Laptop"
-          price="120000"
-        />
+      {item.map(createinput)}
       </div>
     </div>
   );
