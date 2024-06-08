@@ -1,80 +1,39 @@
-/* General Styles */
-body {
-  background-color: #f8f9fa; /* Light grey background */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #343a40; /* Dark grey text color */
-}
-
-/* Header Styles */
-.header {
+/* Modal styles */
+.modal {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 10px 20px; /* Adjusted padding for better spacing */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
-.header a {
-  color: #ffffff; /* White text color */
-  text-align: center;
-  padding: 10px 20px; /* Added padding for clickable area */
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 25px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-}
-
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-  padding: 10px 20px; /* Adjusted padding for better spacing */
-}
-
-
-.header-right {
-  display: flex;
-  align-items: center;
-}
-
-/* Media Queries for Responsiveness */
-@media screen and (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-    padding: 10px 0; /* Adjusted padding for better spacing */
-    width: 100%;
-  }
-  .header-right {
-    float: none;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .header a {
-    padding: 10px 0; /* Consistent padding for smaller screens */
-  }
-}
-
-/* Additional Enhancements */
-
-/* Footer Styles (if needed) */
-.footer {
-  color: #ffffff; /* White text color */
-  text-align: center;
-  padding: 10px 20px;
   position: fixed;
-  bottom: 0;
+  z-index: 1;
+  left: 0;
+  top: 0;
   width: 100%;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
