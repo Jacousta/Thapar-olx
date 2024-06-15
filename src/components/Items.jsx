@@ -1,9 +1,18 @@
 import React from "react";
+import Details from "./Details";
 function Items(props) {
+  function showdetails(props)
+  {
+    return(
+      <div>
+        <Details />
+      </div>
+    );
+  }
   return (
     <div className="product-listing">
       <div className="product-image">
-        <img src={props.image} alt="null" />
+        <img src={props.image} alt="null" onClick={clicked}/>
       </div>
       <div className="product-details">
         <div className="product-name">
