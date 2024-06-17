@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-function Details(props) {
-  return(
-    <div>
-        <div>
+// function Details(props) {
+//   return(
+//     <div>
+//         <div>
             
-        </div>
-    </div>
-  );
-}
-export default Details;
+//         </div>
+//     </div>
+//   );
+// }
+// export default Details;
