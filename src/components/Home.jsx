@@ -7,6 +7,7 @@ function createInput(item) {
   return (
     <Items
       key={item.id}
+      id={item.id}
       image={item.image}
       name={item.name}
       description={item.description}

@@ -26,7 +26,7 @@ const item =
         },
         {
             id: 4,
-            image:"/images/laptop3.jpeg",
+            image: "/images/laptop3.jpeg",
             name: "Lenovo Compact",
             description: "2012 Model",
             price: 120000
@@ -59,11 +59,11 @@ const item =
         {
             id: 8,
             image: "/images/book1.jpeg",
-            name: "Asus",
+            name: "Education of value investor",
             description: "2012 Model",
             price: "Price-120000"
 
         }
-    
+
     ]
-    export default item;
+export default item;
