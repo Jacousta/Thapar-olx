@@ -26,7 +26,7 @@ const Details = () => {
         <div className="details-info">
           <h1>{item.name}</h1>
           <p>{item.description}</p>
-          <div className="details-price">Price: ${item.price}</div>
+          <div className="details-price">Price: Rs{item.price}</div>
           <div className="details-rating">
             <span>★★★★☆ (122)</span>
           </div>
