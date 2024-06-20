@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import Search from "./Search";
+import Cart from "./Cart";
 
 function Navbar() {
   return (
@@ -14,6 +15,9 @@ function Navbar() {
       </div>
         <div>
         <Sidebar/>
+        </div>
+        <div>
+          <Cart/>
         </div>
       </div>  
       </div>

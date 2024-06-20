@@ -1,10 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import itemList from '../item';  // Import the list of items
+import { useCart } from './CartContext';  // Import the cart context
 
 const Details = () => {
   const { id } = useParams();  // Extract the id from the URL
   const item = itemList.find(item => item.id === parseInt(id));  // Find the item by id
+  const { addToCart } = useCart();  // Get the addToCart function from the context
+
+  const handleAddToCart = (item) => {
+    addToCart(item);
+    alert('Product added to cart');
+  };
 
   if (!item) {
     return <div>Item not found</div>;
@@ -38,7 +45,7 @@ const Details = () => {
               ))}
             </div>
           </div>
-          <button className="add-to-cart">Add to Cart</button>
+          <button className="add-to-cart" onClick={() => handleAddToCart(item)}>Add to Cart</button>
         </div>
       </div>
     </div>

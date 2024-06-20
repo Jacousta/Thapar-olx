@@ -5,7 +5,7 @@ const item =
             image: "/images/labcoat.jpg",
             name: "Labcoat",
             description: "2023 Purchased",
-            price: 120000
+            price: 450
 
         },
         {
@@ -13,7 +13,7 @@ const item =
             image: "/images/laptop1.jpeg",
             name: "Acer tuf gaming",
             description: "2012 Model",
-            price: 120000
+            price: 12000
 
         },
         {
@@ -21,7 +21,7 @@ const item =
             image: "/images/laptop2.jpeg",
             name: "Dell Aspirion",
             description: "2012 Model",
-            price: 120000
+            price: 24000
 
         },
         {
@@ -29,7 +29,7 @@ const item =
             image: "/images/laptop3.jpeg",
             name: "Lenovo Compact",
             description: "2012 Model",
-            price: 120000
+            price: 20000
 
         },
         {
@@ -37,7 +37,7 @@ const item =
             image: "/images/laptop4.jpeg",
             name: "Hp",
             description: "2012 Model",
-            price: 120000
+            price: 41000
 
         },
         {
@@ -45,7 +45,7 @@ const item =
             image: "/images/laptop5.jpeg",
             name: "MSI",
             description: "2012 Model",
-            price: 120000
+            price: 100000
 
         },
         {
@@ -53,15 +53,15 @@ const item =
             image: "/images/cycle2.jpg",
             name: "Hero Cycle",
             description: "2023 Model",
-            price: 120000
+            price: 8000
 
         },
         {
             id: 8,
             image: "/images/book1.jpeg",
             name: "Education of value investor",
-            description: "2012 Model",
-            price: "Price-120000"
+            description: "2012 edition",
+            price: 300
 
         }
 
