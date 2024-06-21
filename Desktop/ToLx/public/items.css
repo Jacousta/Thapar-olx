@@ -1,0 +1,63 @@
+/* Items.css */
+
+.product-listing {
+  display: flex;
+  flex-direction: column; /* Change to column to stack image and text */
+  align-items: center; /* Center the content horizontally */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease-in-out;
+  width: calc(25% - 20px); /* Adjusts the container size for 4 items per row */
+  box-sizing: border-box;
+}
+
+.product-listing:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.product-details {
+  margin-top: 16px; /* Adds space between the image and the text */
+  text-align: center;
+}
+
+.product-name {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+
+.product-description {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.product-price {
+  font-size: 1.1em;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Home.css */
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adds space between the items */
+  justify-content: center; /* Center the items in the container */
+}
+
+.items-container > .product-listing {
+  /* flex: 1 1 calc(25% - 20px); Ensures 4 items per row, subtracting gap */
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
