@@ -1,13 +1,20 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
-const approuter=require("./router/auth-router");
+const approuter = require("./router/auth-router");
+const connectDb = require("./utils/db"); // Fix typo
+
 app.use(express.json());
-app.use("/api/auth",approuter);
-// app.get("/", (req, res) => {
-//     res.status(200).send("Welcome to world");
-// });
-// app.get("/register", (req, res) => {
-//     res.status(200).send("welcome ot registration page");
-// });
+app.use("/api/auth", approuter);
+
 const PORT = 5001;
-app.listen(PORT, () => {console.log(`server is running at port: ${PORT}`)});
+
+connectDb().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server is running at port: ${PORT}`);
+  }).on("error", (err) => {
+    console.error(`Error listening on port ${PORT}: ${err}`);
+  });
+}).catch((err) => {
+  console.error(`Error connecting to database: ${err}`);
+});
