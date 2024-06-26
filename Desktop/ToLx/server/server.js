@@ -1,9 +1,10 @@
 require("dotenv").config();
 const express = require("express");
+const cors=require("cors");
 const app = express();
 const approuter = require("./router/auth-router");
-const connectDb = require("./utils/db"); // Fix typo
-
+const connectDb = require("./utils/db"); 
+app.use(cors());
 app.use(express.json());
 app.use("/api/auth", approuter);
 
