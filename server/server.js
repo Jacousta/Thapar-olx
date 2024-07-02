@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const port = process.env.PORT || 4001;
 const cors=require("cors");
 const app = express();
 const approuter = require("./router/auth-router");
