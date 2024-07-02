@@ -5,5 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    include: ['js-cookie'],},
+    include: ['js-cookie'],
+  },
+  publicDir: 'public', // Ensure Vite knows where your public directory is
 })
