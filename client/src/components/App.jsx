@@ -25,12 +25,12 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Las />} />
             <Route path="/signup" element={<Signup />} />
-            <Route element={<PrivateRoute />}>
+
               <Route path="/home" element={<Home />} />
               <Route path="/details/:id" element={<Details />} />
               <Route path="/cart" element={<Cart />} /> 
               <Route path="/checkout" element={<Checkout />} />
-            </Route>
+
           </Routes>
         </Router>
       </CartProvider>
