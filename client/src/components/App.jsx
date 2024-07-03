@@ -5,12 +5,16 @@ import Las from './Las';
 import Home from './Home';
 import Signup from './Signup';
 import Details from './Details';
-import Cart from './Cart';  // Import the Cart component
+import Cart from './Cart';
 import Checkout from './Checkout';
-import { CartProvider } from './CartContext';  // Import the CartProvider
-import { AuthProvider } from './AuthContext';  // Import the AuthProvider
-import PrivateRoute from './PrivateRoute';  // Import the PrivateRoute
-import Sidebar from './Sidebar';  // Import the Sidebar
+import { CartProvider } from './CartContext';
+import { AuthProvider } from './AuthContext';
+import PrivateRoute from './PrivateRoute';
+import Sidebar from './Sidebar';
+import axios from 'axios';
+
+// Setup axios base URL
+axios.defaults.baseURL = 'https://thapar-olx.onrender.com';  // Update with your backend URL
 
 function App() {
   return (
@@ -24,6 +28,7 @@ function App() {
             <Route element={<PrivateRoute />}>
               <Route path="/home" element={<Home />} />
               <Route path="/details/:id" element={<Details />} />
+              <Route path="/cart" element={<Cart />} /> 
               <Route path="/checkout" element={<Checkout />} />
             </Route>
           </Routes>
