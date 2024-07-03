@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCart } from './CartContext';  // Import the cart context
 const Checkout = () => {
-const { cart } = useCart();  
+  const { cart } = useCart();  
   return (
     <div className="checkout-container">
       <h1>Checkout</h1>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Items from "./Items";
 import Navbar from "./Navbar";
-import item from "../item";
+import item from "../item";  // Sample data, replace with API calls
 
 function createInput(item) {
   return (
@@ -39,8 +39,9 @@ function Home() {
     setIsFormVisible(true);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    // Add API call to save the new item to the backend
     setItems((prevItems) => [
       ...prevItems,
       { ...newItem, id: prevItems.length + 1 }

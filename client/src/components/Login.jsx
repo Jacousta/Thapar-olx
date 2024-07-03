@@ -26,9 +26,9 @@ function Login() {
       alert("All fields are required");
       return;
     }
-    
+
     try {
-      const response = await fetch("http://localhost:5001/api/auth/login", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {  // Change made here
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,14 +47,12 @@ function Login() {
           password: ""
         });
 
-        // Store token in cookies
         if (data.token) {
           login(data.token);
         }
 
         navigate("/home");
       } else {
-        // Check for specific error messages
         if (data.message === "Incorrect password" || data.message === "User not registered") {
           alert(data.message);
           setTimeout(() => {
@@ -67,7 +65,6 @@ function Login() {
 
     } catch (error) {
       console.error("login error:", error);
-      alert("Login failed. Please try again.");
     }
   };
 

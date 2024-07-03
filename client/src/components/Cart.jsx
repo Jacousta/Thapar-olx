@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useCart } from './CartContext';  // Import the cart context
 import { Link } from 'react-router-dom';
+
 const Cart = () => {
   const { cart } = useCart();  // Get the cart items from the context
   const [showCartItems, setShowCartItems] = useState(false);  // State to toggle cart visibility
