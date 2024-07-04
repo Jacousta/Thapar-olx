@@ -72,4 +72,35 @@ const login = async (req, res) => {
         res.status(500).send("Internal server error");
     }
 };
-module.exports = { home, register, login };
+const changePassword = async (req, res) => {
+    try {
+        const { username, oldPassword, newPassword } = req.body;
+
+        // Check if the user exists
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(400).send("User not found");
+        }
+
+        // Compare old password
+        const isPasswordMatch = await bcrypt.compare(oldPassword, user.password);
+        if (!isPasswordMatch) {
+            return res.status(400).send("Old password is incorrect");
+        }
+
+        // Hash the new password
+        const saltRound = 10;
+        const hash = await bcrypt.hash(newPassword, saltRound);
+
+        // Update the user's password
+        user.password = hash;
+        await user.save();
+
+        // Send a success response
+        res.status(200).send("Password changed successfully");
+    } catch (error) {
+        console.error("error", error);
+        res.status(500).send("Internal server error");
+    }
+};
+module.exports = { home, register, login,changePassword };

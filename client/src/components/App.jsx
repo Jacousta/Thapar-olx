@@ -12,6 +12,8 @@ import { AuthProvider } from './AuthContext';
 import PrivateRoute from './PrivateRoute';
 import Sidebar from './Sidebar';
 import axios from 'axios';
+import Forgot from './Forgot';
+import SearchResult from './SearchResult'; // Import SearchResult
 
 // Setup axios base URL
 axios.defaults.baseURL = 'https://thapar-olx.onrender.com';  // Update with your backend URL
@@ -24,7 +26,9 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Las />} />
+            <Route path="/forgotpassword" element={<Forgot />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/search-results" element={<SearchResult />} /> {/* Add the route */}
             <Route element={<PrivateRoute />}>
               <Route path="/home" element={<Home />} />
               <Route path="/details/:id" element={<Details />} />

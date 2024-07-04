@@ -17,6 +17,34 @@ const Details = () => {
     return <div>Item not found</div>;
   }
 
+  let detailsToShow = null;
+
+  // Determine what details to display based on the category
+  if (item.category === 'clothing') {
+    detailsToShow = (
+      <div className="details-size">
+        <p>Select Size:</p>
+        <div className="sizes">
+          {["S", "M", "L", "XL", "XXL"].map(size => (
+            <span key={size}>{size}</span>
+          ))}
+        </div>
+      </div>
+    );
+  } else if (item.category === 'laptop') {
+    detailsToShow = (
+      <div className="details-description">
+        <p>Description: {item.description}</p>
+      </div>
+    );
+  } else if (item.category === 'vehicle') {
+    detailsToShow = (
+      <div className="details-description">
+        <p>Description: {item.description}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="details-container">
       <div className="details-images">
@@ -32,18 +60,10 @@ const Details = () => {
         </div>
         <div className="details-info">
           <h1>{item.name}</h1>
-          <p>{item.description}</p>
+          {detailsToShow}
           <div className="details-price">Price: Rs{item.price}</div>
           <div className="details-rating">
             <span>★★★★☆ (122)</span>
-          </div>
-          <div className="details-size">
-            <p>Select Size:</p>
-            <div className="sizes">
-              {["S", "M", "L", "XL", "XXL"].map(size => (
-                <span key={size}>{size}</span>
-              ))}
-            </div>
           </div>
           <button className="add-to-cart" onClick={() => handleAddToCart(item)}>Add to Cart</button>
         </div>

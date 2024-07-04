@@ -1,22 +1,30 @@
 require("dotenv").config();
 const express = require("express");
-const port = process.env.PORT || 5001;
-const cors=require("cors");
+const cors = require("cors");
+const connectDb = require("./utils/db");
+const authRouter = require("./router/auth-router");
+const productRouter = require("./router/product-router"); // Add this line
+
 const app = express();
-const approuter = require("./router/auth-router");
-const connectDb = require("./utils/db"); 
+const PORT = process.env.PORT || 5001;
+
+// Middleware
 app.use(cors());
 app.use(express.json());
-app.use("/api/auth", approuter);
 
-const PORT = 5001;
+// Routes
+app.use("/api/auth", authRouter);
+app.use("/api/products", productRouter); // Add this line
 
-connectDb().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server is running at port: ${PORT}`);
-  }).on("error", (err) => {
-    console.error(`Error listening on port ${PORT}: ${err}`);
+// Connect to MongoDB
+connectDb()
+  .then(() => {
+    // Start server
+    app.listen(PORT, () => {
+      console.log(`Server is running at port: ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error(`Error connecting to database: ${err}`);
+    process.exit(1); // Exit process on database connection error
   });
-}).catch((err) => {
-  console.error(`Error connecting to database: ${err}`);
-});

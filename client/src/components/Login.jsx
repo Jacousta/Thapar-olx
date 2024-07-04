@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import Input from './Input';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
+import Cookies from 'js-cookie';
 
 function Login() {
   const navigate = useNavigate();
@@ -26,9 +27,9 @@ function Login() {
       alert("All fields are required");
       return;
     }
-
+    
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {  // Change made here
+      const response = await fetch("http://localhost:5001/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,12 +48,15 @@ function Login() {
           password: ""
         });
 
+        // Store token in cookies with 1-day expiry
         if (data.token) {
+          Cookies.set('token', data.token, { expires: 1 });
           login(data.token);
         }
 
         navigate("/home");
       } else {
+        // Check for specific error messages
         if (data.message === "Incorrect password" || data.message === "User not registered") {
           alert(data.message);
           setTimeout(() => {

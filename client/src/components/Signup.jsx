@@ -21,18 +21,20 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if all fields are filled
     if (!user.username || !user.password || !user.confirm_password) {
       alert("All fields are required");
       return;
     }
 
+    // Check if passwords match
     if (user.password !== user.confirm_password) {
       alert("Passwords do not match");
       return;
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/register`, {  // Change made here
+      const response = await fetch("http://localhost:5001/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

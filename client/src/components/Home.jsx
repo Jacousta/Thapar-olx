@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import Items from "./Items";
-import Navbar from "./Navbar";
-import item from "../item";  // Sample data, replace with API calls
+import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Items from './Items';
+import Navbar from './Navbar';
+import item from '../item'; // Sample data, replace with API calls
+import { AuthContext } from './AuthContext';
 
 function createInput(item) {
   return (
     <Items
-      key={item.id}
-      id={item.id}
+      key={item._id || item.id} // Use _id for MongoDB data, id for local data
+      id={item._id || item.id}
       image={item.image}
       name={item.name}
       description={item.description}
@@ -17,15 +19,35 @@ function createInput(item) {
 }
 
 function Home() {
-  const [items, setItems] = useState(item);
+  const navigate = useNavigate();
+  const { isAuthenticated } = useContext(AuthContext);
+  const [items, setItems] = useState(item); // Initialize with local data
   const [newItem, setNewItem] = useState({
-    id: '',
     image: '',
     name: '',
     description: '',
-    price: ''
+    price: '',
+    category: ''
   });
   const [isFormVisible, setIsFormVisible] = useState(false);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    } else {
+      fetchItems();
+    }
+  }, [isAuthenticated, navigate]);
+
+  const fetchItems = async () => {
+    try {
+      const response = await fetch("/api/products");
+      const data = await response.json();
+      setItems(prevItems => [...prevItems, ...data]); // Merge local and fetched data
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -41,19 +63,27 @@ function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add API call to save the new item to the backend
-    setItems((prevItems) => [
-      ...prevItems,
-      { ...newItem, id: prevItems.length + 1 }
-    ]);
-    setNewItem({
-      id: '',
-      image: '',
-      name: '',
-      description: '',
-      price: ''
-    });
-    setIsFormVisible(false);
+    try {
+      const response = await fetch("/api/products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newItem)
+      });
+      const addedProduct = await response.json();
+      setItems((prevItems) => [...prevItems, addedProduct]);
+      setNewItem({
+        image: '',
+        name: '',
+        description: '',
+        price: '',
+        category: ''
+      });
+      setIsFormVisible(false);
+    } catch (error) {
+      console.error("Error adding product:", error);
+    }
   };
 
   const handleClose = () => {
@@ -74,7 +104,9 @@ function Home() {
       {isFormVisible && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" onClick={handleClose}>&times;</span>
+            <span className="close" onClick={handleClose}>
+              &times;
+            </span>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
@@ -103,6 +135,13 @@ function Home() {
                 value={newItem.price}
                 onChange={handleInputChange}
                 placeholder="Price"
+              />
+              <input
+                type="text"
+                name="category"
+                value={newItem.category}
+                onChange={handleInputChange}
+                placeholder="Category"
               />
               <button type="submit" className="submitProduct">
                 Submit
