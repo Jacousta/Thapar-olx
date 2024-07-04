@@ -11,7 +11,9 @@ function Login() {
     username: "",
     password: ""
   });
-
+  const forgotpassword=()=>{
+    navigate("/forgotpassword");
+  }
   const handleInput = (e) => {
     const { name, value } = e.target;
     setUser({
@@ -102,7 +104,7 @@ function Login() {
       </div>
       <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
         <button type="button" className="cancelbtn" onClick={handleCancel}><span>Cancel</span></button>
-        <span className="psw"><a href="#">Forgot password?</a></span>
+        <span className="psw"><a href="#" onClick={forgotpassword}>Forgot password?</a></span>
       </div>
     </form>
   );
