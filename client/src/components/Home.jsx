@@ -41,7 +41,7 @@ function Home() {
 
   const fetchItems = async () => {
     try {
-      const response = await fetch("/api/products");
+      const response = await fetch("https://thapar-olx-1.onrender.com/api/products");
       const data = await response.json();
       setItems(prevItems => [...prevItems, ...data]); // Merge local and fetched data
     } catch (error) {
@@ -64,7 +64,7 @@ function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/products", {
+      const response = await fetch("https://thapar-olx-1.onrender.com/api/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
