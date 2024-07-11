@@ -73,3 +73,9 @@
     opacity: 1;
   }
 }
+@media screen and (max-width: 400px) {
+  .initial-heading {
+    text-align: center;
+    position: relative;
+  }
+}

@@ -125,7 +125,8 @@ span.psw {
 
 /* Media query for small screens */
 @media screen and (max-width: 400px) {
-  .cancelbtn {
-    width: 100%;
+  form {
+max-width: 300px;
+margin-left: 13%;
   }
 }
