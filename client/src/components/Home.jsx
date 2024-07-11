@@ -34,9 +34,10 @@ function Home() {
   useEffect(() => {
     if (!isAuthenticated) {
       navigate('/login');
-    } else {
-      fetchItems();
     }
+      else{
+        fetchItems();
+      }
   }, [isAuthenticated, navigate]);
 
   const fetchItems = async () => {
@@ -80,16 +81,39 @@ function Home() {
         price: '',
         category: ''
       });
-      setIsFormVisible(false);
     } catch (error) {
-      console.error("Error adding product:", error);
+      console.error("Error deleting product:", error);
     }
   };
 
   const handleClose = () => {
     setIsFormVisible(false);
   };
-
+  // const handleRemoveProduct= async(e)=>
+  // {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await fetch("https://thapar-olx-1.onrender.com/api/products", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json"
+  //       },
+  //       body: JSON.stringify(newItem)
+  //     });
+  //     const addedProduct = await response.json();
+  //     setItems((prevItems) => [...prevItems]);
+  //     setNewItem({
+  //       image: '',
+  //       name: '',
+  //       description: '',
+  //       price: '',
+  //       category: ''
+  //     });
+  //     setIsFormVisible(false);
+  //   } catch (error) {
+  //     console.error("Error adding product:", error);
+  //   }
+  // }
   return (
     <div>
       <div>
@@ -100,7 +124,11 @@ function Home() {
         <button className="addProduct" onClick={handleAddProduct}>
           Add product
         </button>
+        {/* <button className="addProduct" onClick={handleRemoveProduct}>
+          Remove Product
+        </button> */}
       </div>
+      
       {isFormVisible && (
         <div className="modal">
           <div className="modal-content">

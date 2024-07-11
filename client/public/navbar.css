@@ -88,6 +88,7 @@ body {
   }
   .header .logo img {
     max-height: 50px; /* Adjust as necessary for your logo size */
+
   }
   .header a {
     padding: 10px 0; /* Consistent padding for smaller screens */
@@ -95,6 +96,13 @@ body {
   .header-right {
     justify-content: center;
     width: 100%;
+  }
+  .phone{
+    margin-left: 80%;
+    display: inline-flex;
+  }
+  .product-price {
+    font-size:x-small;
   }
 }
 

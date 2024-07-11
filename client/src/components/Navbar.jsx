@@ -13,7 +13,7 @@ function Navbar() {
       <div>
         <Search />
       </div>
-        <div>
+        <div className="phone">
         <Sidebar/>
         </div>
         <div>
