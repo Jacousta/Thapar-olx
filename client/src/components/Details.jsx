@@ -1,5 +1,4 @@
 // import React from 'react';
-import { useParams } from 'react-router-dom';
 // const Details = () => {
   // const { id } = useParams();  // Extract the id from the URL
   // const item = itemList.find(item => item.id === parseInt(id));  // Find the item by id
@@ -71,13 +70,13 @@ import { useParams } from 'react-router-dom';
 
 // export default Details;
 import React, { useState } from "react";
+import { useParams } from "react-router-dom"; // Assuming you're using react-router for URL params
 
 import itemList from '../item';  // Import the list of items
 import { useCart } from './CartContext';  // Import the cart context
 
 import minusIcon from "/images/icon-minus.svg";
 import plusIcon from "/images/icon-plus.svg";
-import closeIcon from "/images/icon-close.svg";
 
 function Details() {
   const [quantity, setQuantity] = useState(0);
@@ -91,11 +90,13 @@ function Details() {
   const decrementQuantity = () => setQuantity(quantity > 0 ? quantity - 1 : 0);
 
   const handleAddToCart = () => {
-    if (quantity > 0) {
+    if (quantity > 0 && item.status !== "sold") {
       addToCart({ ...item, quantity });
       alert('Product added to cart');
-    } else {
+    } else if (quantity === 0) {
       alert('Please select a quantity');
+    } else if (item.status === "sold") {
+      alert('This item is sold out');
     }
   };
 
@@ -117,7 +118,6 @@ function Details() {
       </div>
     );
   } 
-  
 
   const images = item.images || [item.image]; // Fallback if item only has one image
 
@@ -171,9 +171,14 @@ function Details() {
               </div>
             </div>
 
+            {/* Display sold-out message if the item is sold */}
+            {item.status === "sold" && (
+              <p className="sold-out-message">This item is sold out.</p>
+            )}
+
             <form action="#" className="cart-form">
               <div className="cart-form__input-container" aria-label="Define the product quantity">
-                <button type="button" className="btn-changeValue minus-item" onClick={decrementQuantity}>
+                <button type="button" className="btn-changeValue minus-item" onClick={decrementQuantity} disabled={item.status === "sold"}>
                   <span className="sr-only">Minus one item</span>
                   <img src={minusIcon} alt="Minus icon" />
                 </button>
@@ -183,14 +188,16 @@ function Details() {
                   value={quantity}
                   id="product__quantity"
                   onChange={(e) => setQuantity(Number(e.target.value))}
+                  disabled={item.status === "sold"}
                 />
-                <button type="button" className="btn-changeValue plus-item" onClick={incrementQuantity}>
+                <button type="button" className="btn-changeValue plus-item" onClick={incrementQuantity} disabled={item.status === "sold"}>
                   <span className="sr-only">Plus one item</span>
                   <img src={plusIcon} alt="Plus icon" />
                 </button>
               </div>
-              <button type="button" className="cart-form__add-btn" onClick={handleAddToCart}>
-                <span>Add to cart</span>
+              {/* Disable Add to Cart button if item is sold */}
+              <button type="button" className="cart-form__add-btn" onClick={handleAddToCart} disabled={item.status === "sold"}>
+                <span>{item.status === "sold" ? "Sold Out" : "Add to cart"}</span>
               </button>
             </form>
           </section>
@@ -201,4 +208,3 @@ function Details() {
 }
 
 export default Details;
-
