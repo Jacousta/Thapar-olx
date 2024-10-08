@@ -16,9 +16,6 @@ function Navbar() {
         <div className="phone">
         <Sidebar/>
         </div>
-        <div>
-          <Cart/>
-        </div>
       </div>  
       </div>
   );
