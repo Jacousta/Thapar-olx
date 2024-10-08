@@ -175,31 +175,6 @@ function Details() {
             {item.status === "sold" && (
               <p className="sold-out-message">This item is sold out.</p>
             )}
-
-            <form action="#" className="cart-form">
-              <div className="cart-form__input-container" aria-label="Define the product quantity">
-                <button type="button" className="btn-changeValue minus-item" onClick={decrementQuantity} disabled={item.status === "sold"}>
-                  <span className="sr-only">Minus one item</span>
-                  <img src={minusIcon} alt="Minus icon" />
-                </button>
-                <input
-                  type="number"
-                  min="0"
-                  value={quantity}
-                  id="product__quantity"
-                  onChange={(e) => setQuantity(Number(e.target.value))}
-                  disabled={item.status === "sold"}
-                />
-                <button type="button" className="btn-changeValue plus-item" onClick={incrementQuantity} disabled={item.status === "sold"}>
-                  <span className="sr-only">Plus one item</span>
-                  <img src={plusIcon} alt="Plus icon" />
-                </button>
-              </div>
-              {/* Disable Add to Cart button if item is sold */}
-              <button type="button" className="cart-form__add-btn" onClick={handleAddToCart} disabled={item.status === "sold"}>
-                <span>{item.status === "sold" ? "Sold Out" : "Add to cart"}</span>
-              </button>
-            </form>
           </section>
         </article>
       </main>
