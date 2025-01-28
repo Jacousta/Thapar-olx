@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDb = require("./utils/db");
 const authRouter = require("./router/auth-router");
-const productRouter = require("./router/product-router"); // Add this line
+const productRouter = require("./router/product-router"); 
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRouter);
-app.use("/api/products", productRouter); // Add this line
+app.use("/api/products", productRouter); 
 
 // Connect to MongoDB
 connectDb()
